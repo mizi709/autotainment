@@ -235,6 +235,10 @@ class DashboardRenderer {
         val textW = box.right - textL - box.height() * 0.9f
 
         when {
+            !NowPlaying.supported -> {
+                drawFit(c, "AutoTainment Lite", textL, box.top + box.height() * 0.45f, textW, box.height() * 0.26f, white, tfBold)
+                drawFit(c, "Paparan lagu ada dalam edisi Full", textL, box.top + box.height() * 0.78f, textW, box.height() * 0.18f, grey, tfReg)
+            }
             !s.mediaAccess -> {
                 drawFit(c, "Paparan lagu dimatikan", textL, box.top + box.height() * 0.45f, textW, box.height() * 0.24f, white, tfMed)
                 drawFit(c, "Buka app AutoTainment di phone > Benarkan akses notifikasi", textL, box.top + box.height() * 0.78f, textW, box.height() * 0.18f, grey, tfReg)

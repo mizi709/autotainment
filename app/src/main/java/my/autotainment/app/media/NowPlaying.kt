@@ -8,6 +8,7 @@ import android.media.session.MediaController
 import android.media.session.MediaSessionManager
 import android.media.session.PlaybackState
 import androidx.core.app.NotificationManagerCompat
+import my.autotainment.app.BuildConfig
 
 /** Baca & kawal media yang sedang dimainkan (Spotify, YouTube Music, Joox dll). */
 object NowPlaying {
@@ -20,8 +21,11 @@ object NowPlaying {
         val durationMs: Long,
     )
 
+    /** Paparan lagu hanya ada dalam edisi full (perlukan Notification Listener). */
+    val supported: Boolean = BuildConfig.FLAVOR == "full"
+
     fun hasAccess(ctx: Context): Boolean =
-        NotificationManagerCompat.getEnabledListenerPackages(ctx).contains(ctx.packageName)
+        supported && NotificationManagerCompat.getEnabledListenerPackages(ctx).contains(ctx.packageName)
 
     private fun controller(ctx: Context): MediaController? {
         if (!hasAccess(ctx)) return null

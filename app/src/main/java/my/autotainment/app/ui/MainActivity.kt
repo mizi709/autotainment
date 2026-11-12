@@ -169,8 +169,16 @@ private fun SetupScreen(tick: Int, onTestAzan: () -> Unit) {
                     arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION),
                 )
             }
-            PermRow("Akses notifikasi (paparan lagu)", hasMedia, "Buka") {
-                ctx.startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
+            if (NowPlaying.supported) {
+                PermRow("Akses notifikasi (paparan lagu)", hasMedia, "Buka") {
+                    ctx.startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
+                }
+            } else {
+                Text(
+                    "Edisi Lite: paparan lagu tidak termasuk (Play Protect Malaysia block permission notifikasi " +
+                        "untuk app yang dipasang dari browser). Guna edisi Full melalui ADB untuk ciri ini.",
+                    color = Grey, fontSize = 13.sp,
+                )
             }
             PermRow("Tiada had bateri", batteryOk, "Buka") {
                 ctx.startActivity(

@@ -150,19 +150,22 @@ class DashboardScreen(carContext: CarContext) : Screen(carContext) {
         CarIcon.Builder(IconCompat.createWithResource(carContext, res)).build()
 
     override fun onGetTemplate(): Template {
-        val strip = ActionStrip.Builder()
-            .addAction(
+        val builder = ActionStrip.Builder()
+        if (NowPlaying.supported) {
+            builder.addAction(
                 Action.Builder().setIcon(icon(R.drawable.ic_prev))
                     .setOnClickListener { NowPlaying.previous(carContext); render() }.build(),
             )
-            .addAction(
+            builder.addAction(
                 Action.Builder().setIcon(icon(R.drawable.ic_play_pause))
                     .setOnClickListener { NowPlaying.playPause(carContext); render() }.build(),
             )
-            .addAction(
+            builder.addAction(
                 Action.Builder().setIcon(icon(R.drawable.ic_next))
                     .setOnClickListener { NowPlaying.next(carContext); render() }.build(),
             )
+        }
+        val strip = builder
             .addAction(
                 Action.Builder().setIcon(icon(R.drawable.ic_refresh))
                     .setOnClickListener {

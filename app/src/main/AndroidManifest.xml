@@ -43,15 +43,6 @@
             </intent-filter>
         </service>
 
-        <!-- Akses notifikasi: untuk baca lagu yang sedang dimainkan (Spotify, YT Music dll) -->
-        <service
-            android:name=".media.MediaListenerService"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
-            <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService" />
-            </intent-filter>
-        </service>
+        <!-- Notification Listener (paparan lagu) hanya dalam edisi full: lihat src/full/AndroidManifest.xml -->
     </application>
 </manifest>

@@ -19,9 +19,24 @@ Dashboard Android Auto **percuma & open-source** — dibina untuk Honda Civic FE
 - Phone Android **12 ke atas**
 - Kereta / head unit yang support **Android Auto** (wired atau wireless)
 
-## Cara install
+## Dua edisi
 
-1. Pergi ke tab **Releases** repo ini dan download fail `AutoTainment-v0.1.x.apk` terbaru dari phone.
+| Edisi | Paparan lagu | Cara install |
+|---|---|---|
+| **Lite** | Tiada | Download & install terus dari phone |
+| **Full** | Ada (perlu akses notifikasi) | Melalui ADB dari PC |
+
+Sejak April 2026, Play Protect di Malaysia block app sideload (dari browser/WhatsApp/file manager) yang minta akses notifikasi. Install melalui ADB tidak terkesan.
+
+**Install Full melalui ADB (Windows):**
+1. Download *SDK Platform-Tools* dari developer.android.com dan extract.
+2. Phone: Tetapan → About phone → tekan **OS version** 7 kali → Additional settings → Developer options → hidupkan **USB debugging** dan **Install via USB** (Xiaomi perlukan login Mi account).
+3. Sambung phone ke PC dengan kabel USB, terima prompt "Allow USB debugging".
+4. Dalam folder platform-tools: `adb install -r AutoTainment-Full-v0.1.x.apk`
+
+## Cara install (Lite)
+
+1. Pergi ke tab **Releases** repo ini dan download fail `AutoTainment-Lite-v0.1.x.apk` terbaru dari phone.
 2. Buka fail tu dan benarkan "Install unknown apps" bila diminta.
 3. Buka app **AutoTainment** dalam phone dan lengkapkan semua kebenaran (lokasi, akses notifikasi, bateri).
 4. Aktifkan **Unknown sources** dalam Android Auto:

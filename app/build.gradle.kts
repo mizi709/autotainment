@@ -40,6 +40,22 @@ android {
         }
     }
 
+    // Dua edisi:
+    //  - lite: tiada Notification Listener -> boleh install terus dari browser
+    //          (Play Protect Malaysia block app sideload yang minta permission ini)
+    //  - full: ada paparan lagu (Notification Listener) -> install melalui ADB dari PC
+    flavorDimensions += "edition"
+    productFlavors {
+        create("lite") {
+            dimension = "edition"
+            versionNameSuffix = "-lite"
+        }
+        create("full") {
+            dimension = "edition"
+            versionNameSuffix = "-full"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -49,6 +65,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
