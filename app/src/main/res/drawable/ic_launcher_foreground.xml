@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Huruf "A" -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M54,28 L76,72 L66,72 L61.5,62 L46.5,62 L42,72 L32,72 Z M54,42 L59,54 L49,54 Z" />
+    <!-- Jalur merah RS -->
+    <path
+        android:fillColor="#FFE4002B"
+        android:pathData="M38,76 L70,76 L70,80 L38,80 Z" />
+</vector>
